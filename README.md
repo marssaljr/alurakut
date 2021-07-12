@@ -1,5 +1,5 @@
 <h1 align="center"> 
-  <img alt="Alurakut" src=".github/Logo.png" width="200px"/>  
+  <img alt="Alurakut" src=".github/Logo.svg" width="200px"/>  
   <br>  
   Alurakut - Imersão React 3a edição ⚛️
 </h1>  
