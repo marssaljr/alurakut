@@ -29,7 +29,7 @@
   <a href="#memo-license">License</a> 
 </p> 
  
-![App Screenshot](https://raw.githubusercontent.com/marssaljr/alurakut/main/.github/app.svg) 
+![App Screenshot](https://raw.githubusercontent.com/marssaljr/alurakut/main/.github/app.jpg) 
 <p align="center"> 
   <a href="https://alura-kut.vercel.app/" target="_blank"> 
     <img alt="Demo on Vercel" src="https://vercel.com/button"> 
