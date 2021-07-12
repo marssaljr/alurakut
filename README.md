@@ -30,7 +30,6 @@
 </p> 
  
 ![App Screenshot](https://raw.githubusercontent.com/marssaljr/alurakut/main/.github/app.svg) 
-[![Deploy with Vercel](https://vercel.com/button)](https://alura-kut.vercel.app/) 
 <p align="center"> 
   <a href="https://alura-kut.vercel.app/" target="_blank"> 
     <img alt="Demo on Vercel" src="https://vercel.com/button"> 
