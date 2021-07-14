@@ -1,5 +1,7 @@
 import { MainGrid, Box, ProfileRelationsBoxWrapper } from '../src/components';
 import { AlurakutMenu, OrkutNostalgicIconSet, AlurakutProfileSidebarMenuDefault } from '../src/lib/AlurakutCommons';
+import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 function ProfileSideBar(props) {
   return (
@@ -18,6 +20,10 @@ function ProfileSideBar(props) {
 }
 
 export default function Home() {
+  const [communities, setCommunities] = useState([{
+    title: 'Eu odeio acordar cedo',
+    image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg'}
+  ]);
   const githubuser = 'marssaljr';
   const peopleWhoLiked = [
     'peas',
@@ -30,6 +36,7 @@ export default function Home() {
 
   return (
     <>
+    <Toaster />
     <AlurakutMenu/>
     <MainGrid>
       <div 
@@ -50,7 +57,21 @@ export default function Home() {
         </Box>
         <Box>
           <h2 className="subTitle">O que você deseja fazer?</h2>
-          <form>
+          <form onSubmit={function handleCreateCommunity(e) {
+            e.preventDefault()
+            const formData = new FormData(e.target);
+            const community = {
+              title: formData.get('title'),
+              image: formData.get('image')
+            }
+            if (communities.length < 6) {
+              setCommunities([...communities, cummunity]);
+            }
+            else {
+              toast.error('você não pode criar mais que 6 comunidades')
+          }
+          }}>
+            
             <div>
             <input
              placeholder="Qual vai ser o nome da sua comunidade?"
@@ -75,7 +96,30 @@ export default function Home() {
       <div
        className="profileRelationsArea"
        style={{gridArea: 'profileRelationsArea'}}>
+         <ProfileRelationsBoxWrapper>
+          {<ul>
+            {communities.map(
+              (i) => {
+              return (
+                <li>
+                  <a
+                   href={`/users/${i.title}`}
+                   key={i.title}>
+                    <img
+                     src={i.image}
+                     alt={i.title} />
+                    <span>
+                      {i.title}
+                    </span>
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+          }
+        </ProfileRelationsBoxWrapper>
         <ProfileRelationsBoxWrapper>
+        
           <h2 className="smallTitle">
             Pessoas da comunidade ({peopleWhoLiked.length})
           </h2>
