@@ -1,13 +1,22 @@
 import { MainGrid, Box, ProfileRelationsBoxWrapper } from '../src/components';
-import { AlurakutMenu, OrkutNostalgicIconSet } from '../src/lib/AlurakutCommons';
+import { AlurakutMenu, OrkutNostalgicIconSet, AlurakutProfileSidebarMenuDefault } from '../src/lib/AlurakutCommons';
 
 function ProfileSideBar(props) {
   return (
     <Box >
-      <img src={`https://github.com/${props.user}.png`} style={{ borderRadius: '10%'}}/>
+      <img src={`https://github.com/${props.user}.png`} style={{ borderRadius: '10%'}} alt={props.user}/>
+      <hr />
+      <p>
+      <a className="boxLink" href={`https://github.com/${props.user}`}>
+        @{props.user}
+      </a>
+      </p>
+      <hr/>
+      <AlurakutProfileSidebarMenuDefault />
     </Box>
   )
 }
+
 export default function Home() {
   const githubuser = 'marssaljr';
   const peopleWhoLiked = [
